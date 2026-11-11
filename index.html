@@ -1,0 +1,593 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101010">
+
+    <title>LEILÃO! | Monte seu time</title>
+
+    <link rel="icon" href="Assents/Moedas/Moeda.png">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/responsivo.css">
+</head>
+
+<body>
+
+    <!-- ================================= -->
+    <!--             LOBBY                 -->
+    <!-- ================================= -->
+
+    <main id="app">
+
+        <section id="lobby-screen" class="screen active">
+
+            <header class="main-header">
+                <div class="logo">
+                    <span>LEILÃO<span class="highlight">!</span></span>
+                    <small>MONTE SEU TIME. VENÇA O LEILÃO.</small>
+                </div>
+
+                <div class="header-coins">
+                    <img src="Assents/Moedas/Moeda.png" alt="Moedas">
+                    <span id="lobby-coins">50</span>
+                </div>
+            </header>
+
+            <div class="lobby-content">
+
+                <div class="welcome-area">
+                    <span class="section-tag">BEM-VINDO AO</span>
+
+                    <h1>LEILÃO<span class="highlight">!</span></h1>
+
+                    <p>
+                        Monte seu elenco dos sonhos, dispute jogadores
+                        e prove que você tem o melhor time.
+                    </p>
+                </div>
+
+                <div class="game-modules">
+
+                    <article class="module-card available">
+
+                        <div class="module-icon">⚽</div>
+
+                        <span class="module-status">DISPONÍVEL</span>
+
+                        <h2>FUTSAL</h2>
+
+                        <p>
+                            Monte seu time através de leilões
+                            e dispute a votação final.
+                        </p>
+
+                        <button id="open-futsal" class="primary-button">
+                            JOGAR FUTSAL
+                        </button>
+
+                    </article>
+
+                </div>
+
+                <div class="lobby-footer">
+                    <span>LEILÃO! © 2026</span>
+                    <span>CRIE. DISPUTE. VENÇA.</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!--          ENTRAR NO FUTSAL         -->
+        <!-- ================================= -->
+
+        <section id="futsal-screen" class="screen">
+
+            <header class="page-header">
+
+                <button class="back-button" id="back-lobby">
+                    ← VOLTAR
+                </button>
+
+                <h2>MODO <span class="highlight">FUTSAL</span></h2>
+
+                <div class="header-coins">
+                    <img src="Assents/Moedas/Moeda.png" alt="Moedas">
+                    <span id="futsal-coins">50</span>
+                </div>
+
+            </header>
+
+            <div class="setup-content">
+
+                <div class="setup-heading">
+                    <span class="section-tag">PREPARE-SE</span>
+                    <h1>VAMOS <span class="highlight">JOGAR?</span></h1>
+                    <p>Escolha como deseja participar.</p>
+                </div>
+
+                <div class="player-name-box">
+
+                    <label for="player-name">SEU NOME DE JOGADOR</label>
+
+                    <input
+                        type="text"
+                        id="player-name"
+                        placeholder="Digite seu nome..."
+                        maxlength="20"
+                        autocomplete="off"
+                    >
+
+                </div>
+
+                <div class="room-options">
+
+                    <article class="option-card">
+
+                        <div class="option-icon">＋</div>
+
+                        <h3>CRIAR SALA</h3>
+
+                        <p>
+                            Crie uma sala, convide seus amigos
+                            e seja o responsável pela partida.
+                        </p>
+
+                        <button id="create-room" class="primary-button">
+                            CRIAR SALA
+                        </button>
+
+                    </article>
+
+
+                    <article class="option-card">
+
+                        <div class="option-icon">⌕</div>
+
+                        <h3>ENTRAR NA SALA</h3>
+
+                        <p>
+                            Já possui um código?
+                            Entre na sala de outro jogador.
+                        </p>
+
+                        <input
+                            type="text"
+                            id="room-code-input"
+                            placeholder="DIGITE O CÓDIGO"
+                            maxlength="8"
+                            autocomplete="off"
+                        >
+
+                        <button id="join-room" class="secondary-button">
+                            ENTRAR NA SALA
+                        </button>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!--           SALA DE ESPERA          -->
+        <!-- ================================= -->
+
+        <section id="waiting-screen" class="screen">
+
+            <header class="page-header">
+
+                <button class="back-button" id="leave-room">
+                    ← SAIR DA SALA
+                </button>
+
+                <h2>SALA DE <span class="highlight">ESPERA</span></h2>
+
+                <div class="header-coins">
+                    <img src="Assents/Moedas/Moeda.png" alt="Moedas">
+                    <span id="waiting-coins">50</span>
+                </div>
+
+            </header>
+
+            <div class="waiting-content">
+
+                <div class="room-information">
+
+                    <span class="section-tag">CÓDIGO DA PARTIDA</span>
+
+                    <div class="room-code-display">
+
+                        <strong id="room-code">--------</strong>
+
+                        <button id="copy-room-code" title="Copiar código">
+                            COPIAR
+                        </button>
+
+                    </div>
+
+                    <p>Compartilhe o código com seus amigos!</p>
+
+                </div>
+
+
+                <div class="players-panel">
+
+                    <div class="panel-heading">
+
+                        <div>
+                            <span class="section-tag">PARTICIPANTES</span>
+                            <h2>JOGADORES NA SALA</h2>
+                        </div>
+
+                        <span class="player-counter" id="player-counter">
+                            0/8
+                        </span>
+
+                    </div>
+
+                    <div id="waiting-players" class="players-grid">
+
+                        <!-- Os participantes serão adicionados pelo JavaScript -->
+
+                    </div>
+
+                </div>
+
+
+                <div class="waiting-actions">
+
+                    <p id="waiting-message">
+                        Aguardando participantes...
+                    </p>
+
+                    <button
+                        id="start-game"
+                        class="primary-button"
+                        disabled
+                    >
+                        COMEÇAR PARTIDA
+                    </button>
+
+                    <small>
+                        Somente o criador da sala pode iniciar a partida.
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!--           TELA DE LEILÃO          -->
+        <!-- ================================= -->
+
+        <section id="auction-screen" class="screen">
+
+            <header class="game-header">
+
+                <div class="game-logo">
+                    LEILÃO<span class="highlight">!</span>
+                    <small>FUTSAL</small>
+                </div>
+
+                <div class="header-coins">
+
+                    <img src="Assents/Moedas/Moeda.png" alt="Moedas">
+
+                    <span id="auction-coins">50</span>
+
+                </div>
+
+            </header>
+
+
+            <div class="auction-content">
+
+                <div class="auction-progress">
+
+                    <span id="auction-phase">ESCOLHA DO ESCUDO</span>
+
+                    <span id="auction-position">
+                        ETAPA 1
+                    </span>
+
+                </div>
+
+
+                <div class="auction-player-card">
+
+                    <span class="section-tag" id="auction-category">
+                        ESCUDO DO TIME
+                    </span>
+
+                    <div class="auction-image-container">
+
+                        <img
+                            id="auction-image"
+                            src=""
+                            alt="Item em leilão"
+                        >
+
+                    </div>
+
+                    <h1 id="auction-player-name">
+                        AGUARDANDO...
+                    </h1>
+
+                    <div class="auction-timer">
+
+                        <span>TEMPO RESTANTE</span>
+
+                        <strong id="auction-timer">20</strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="bidding-panel">
+
+                    <div class="highest-bid">
+
+                        <span>MAIOR LANCE</span>
+
+                        <div>
+                            <img src="Assents/Moedas/Moeda.png" alt="Moedas">
+                            <strong id="highest-bid">0</strong>
+                        </div>
+
+                        <small id="highest-bidder">
+                            Ninguém deu lance ainda.
+                        </small>
+
+                    </div>
+
+
+                    <div class="bid-action">
+
+                        <button id="place-bid" class="primary-button">
+                            +1 MOEDA
+                        </button>
+
+                        <p>
+                            Clique para aumentar seu lance em 1 moeda.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="auction-participants">
+
+                    <h3>PARTICIPANTES</h3>
+
+                    <div id="auction-players-list">
+
+                        <!-- Lista atualizada pelo JavaScript -->
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!--          MEU TIME                 -->
+        <!-- ================================= -->
+
+        <section id="team-screen" class="screen">
+
+            <header class="page-header">
+
+                <h2>MEU <span class="highlight">TIME</span></h2>
+
+                <div class="header-coins">
+                    <img src="Assents/Moedas/Moeda.png" alt="Moedas">
+                    <span id="team-coins">50</span>
+                </div>
+
+            </header>
+
+
+            <div class="team-content">
+
+                <div class="team-header">
+
+                    <img id="team-shield" src="" alt="Escudo do time">
+
+                    <div>
+                        <span class="section-tag">SEU ELENCO</span>
+                        <h1 id="team-name">MEU TIME</h1>
+                    </div>
+
+                </div>
+
+
+                <div class="team-formation">
+
+                    <div class="team-position" data-position="GOL">
+                        <h3>GOLEIRO</h3>
+                        <div id="team-gol"></div>
+                    </div>
+
+                    <div class="team-position" data-position="FIXO">
+                        <h3>FIXO</h3>
+                        <div id="team-fixo"></div>
+                    </div>
+
+                    <div class="team-position" data-position="ALA D">
+                        <h3>ALA DIREITA</h3>
+                        <div id="team-ala-d"></div>
+                    </div>
+
+                    <div class="team-position" data-position="ALA E">
+                        <h3>ALA ESQUERDA</h3>
+                        <div id="team-ala-e"></div>
+                    </div>
+
+                    <div class="team-position" data-position="PIVO">
+                        <h3>PIVÔ</h3>
+                        <div id="team-pivo"></div>
+                    </div>
+
+                </div>
+
+                <div class="team-status">
+                    <span id="team-player-count">0/5 JOGADORES</span>
+                    <span id="team-budget">50 MOEDAS</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!--          FINALIZAÇÃO              -->
+        <!-- ================================= -->
+
+        <section id="final-screen" class="screen">
+
+            <header class="page-header">
+
+                <h2>FINAL DA <span class="highlight">PARTIDA</span></h2>
+
+            </header>
+
+
+            <div class="final-content">
+
+                <div class="final-heading">
+
+                    <span class="section-tag">LEILÃO ENCERRADO</span>
+
+                    <h1>CONFIRA OS <span class="highlight">TIMES!</span></h1>
+
+                    <p>
+                        Todos os participantes terminaram suas escalações.
+                        Conheça os times antes da votação.
+                    </p>
+
+                </div>
+
+
+                <div id="final-teams" class="final-teams-grid">
+
+                    <!-- Os times serão exibidos pelo JavaScript -->
+
+                </div>
+
+
+                <div class="voting-area">
+
+                    <h2>VOTAÇÃO DO MELHOR TIME</h2>
+
+                    <p>Escolha qual participante montou o melhor elenco.</p>
+
+                    <div id="voting-options">
+
+                        <!-- Opções de votação -->
+
+                    </div>
+
+                    <button id="start-voting" class="primary-button">
+                        COMEÇAR VOTAÇÃO
+                    </button>
+
+                    <button id="confirm-vote" class="secondary-button" hidden>
+                        CONFIRMAR VOTO
+                    </button>
+
+                </div>
+
+
+                <div id="voting-result" class="voting-result" hidden>
+
+                    <span class="section-tag">RESULTADO FINAL</span>
+
+                    <h1>🏆 VENCEDOR!</h1>
+
+                    <div id="winner-display"></div>
+
+                </div>
+
+
+                <div class="final-actions">
+
+                    <button id="new-game" class="primary-button">
+                        JOGAR NOVAMENTE
+                    </button>
+
+                    <button id="return-lobby" class="secondary-button">
+                        VOLTAR AO LOBBY
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!--             NOTIFICAÇÕES          -->
+        <!-- ================================= -->
+
+        <div id="notification" class="notification" role="status">
+
+            <span id="notification-message"></span>
+
+        </div>
+
+
+        <!-- ================================= -->
+        <!--              LOADING              -->
+        <!-- ================================= -->
+
+        <div id="loading-screen" class="loading-screen" hidden>
+
+            <div class="loading-content">
+
+                <div class="loading-spinner"></div>
+
+                <h2>LEILÃO!</h2>
+
+                <p id="loading-message">Carregando...</p>
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+    <!-- ================================= -->
+    <!--           JAVASCRIPT              -->
+    <!-- ================================= -->
+
+    <script src="JS/supabase.js"></script>
+    <script src="JS/multiplayer.js"></script>
+    <script src="JS/lobby.js"></script>
+    <script src="JS/sala.js"></script>
+    <script src="JS/leilao.js"></script>
+    <script src="JS/times.js"></script>
+    <script src="JS/votacao.js"></script>
+    <script src="JS/app.js"></script>
+
+</body>
+</html>
